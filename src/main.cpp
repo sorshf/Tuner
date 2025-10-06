@@ -4,15 +4,10 @@
 #include "Sound.h"
 #include <SDL3_ttf/SDL_ttf.h>
 #include "Text.h"
+#include "Config.h"
 
 using namespace std;
 
-
-const int SAMPLE_RATE = 15000;
-const int BUFFER_DURATION_ms = 300; //in milliseconds
-
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
 
 int main() {
     SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO);
@@ -54,14 +49,14 @@ int main() {
         cerr << "Text Engine Error: " << SDL_GetError() << endl;
     }
 
-    TTF_Font* font = TTF_OpenFont("../assets/fonts/Roboto_Condensed-Bold.ttf", 45);
+    TTF_Font* font = TTF_OpenFont(FONT_PATH, FONT_SIZE);
     if (!font) {
         cerr << "Font Load Error: " << SDL_GetError() << endl;
     }
 
     //Text object to show the frequency
     Text t {textEngine, font};
-    float xT = (WINDOW_WIDTH - 200) / 2.0;
+    float xT = (WINDOW_WIDTH - 200) / 2.0; //200 is arbitrary
     float yT = WINDOW_HEIGHT/10.0;
     SDL_Color textColor {255, 255, 255, 255};
 

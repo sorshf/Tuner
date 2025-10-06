@@ -6,11 +6,12 @@ An **Audio Frequency Meter** built using **C++** and **SDL3** that captures live
 
 - 🎙️ Captures audio input from your microphone
 - 📊 Performs real-time frequency analysis using Autocorrelation Function
-- 📈 Sample Rate: 15000/s
-- 🔈 Audio Buffer Duration: 300ms
+- 📈 Default sample rate is 15000
+- 🔈 Default audio buffer duration is 300ms
+- 🎛️ Sample Rate, buffer duration, windows width and height, font, and font size can be changed in Config.h
 - 📺 App window stays always on top
 
-![Screenshot of the app measuring pure 440Hz audio.](/assets/screenshots/Screenshot%202025-10-05%20at%208.12.35 PM.png)
+![Screenshot of the app measuring pure 440Hz audio.](/assets/screenshots/app.png)
 
 ## Dependencies
 
