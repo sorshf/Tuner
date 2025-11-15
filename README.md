@@ -26,6 +26,6 @@ git clone https://github.com/sorshf/tuner.git
 cd Tuner
 mkdir build && cd build
 cmake ..
-make
+cmake --build . --config Release
 ./bin/Tuner
 ```
