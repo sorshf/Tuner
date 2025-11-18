@@ -6,13 +6,12 @@
 
 class Text {
     private:
-        TTF_Font* font_ = nullptr;
-        TTF_Text* text_ = nullptr;
-        TTF_TextEngine* engine_ = nullptr;
+        TTF_Text* m_text = nullptr;
+        SDL_Color m_color;
     public:
-        Text(TTF_TextEngine* engine, TTF_Font* font);
+        Text(SDL_Color color);
         ~Text();
-        void update(const char* text, SDL_Color* color);
+        void update(const char* text, TTF_TextEngine* engine, TTF_Font* font);
         void display(float x, float y);
 
 };

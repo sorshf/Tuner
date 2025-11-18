@@ -3,39 +3,34 @@
 #include <SDL3/SDL.h>
 #include <iostream>
 
-Text::Text(TTF_TextEngine* engine, TTF_Font* font) {
-    font_ = font;
-    if (!font_) {
-        std::cerr << "Font Load Error: " << SDL_GetError() << std::endl;
-    }
-    engine_ = engine;
-}
+Text::Text(SDL_Color color):
+    m_color(color){}
 
 Text::~Text() {
 
-    if (text_) {
-        TTF_DestroyText(text_);
-        text_ = nullptr;
+    if (m_text) {
+        TTF_DestroyText(m_text);
+        m_text = nullptr;
     }
 
 }
 
-void Text::update(const char* text, SDL_Color* color) {
-    if (text_) {
-        TTF_DestroyText(text_);
+void Text::update(const char* text, TTF_TextEngine* engine, TTF_Font* font) {
+    if (m_text) {
+        TTF_DestroyText(m_text);
     }
     
-    text_ = TTF_CreateText(engine_, font_, text, 0);
-    if (!text_) {
+    m_text = TTF_CreateText(engine, font, text, 0);
+    if (!m_text) {
         std::cerr << "Text Creation Error: " << SDL_GetError() << std::endl;
     }
 
-    TTF_SetTextColor(text_, color->r, color->g, color->b, color->a);
+    TTF_SetTextColor(m_text, m_color.r, m_color.g, m_color.b, m_color.a);
 }
 
 
 void Text::display(float x, float y) {
-    if (text_ != nullptr) {
-        TTF_DrawRendererText(text_, x, y);
+    if (m_text != nullptr) {
+        TTF_DrawRendererText(m_text, x, y);
     }
 }

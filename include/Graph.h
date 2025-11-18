@@ -12,6 +12,7 @@ private:
     SDL_FPoint* data = nullptr;
     int dataSize = 0;
 public:
+    Graph();
     Graph(SDL_FPoint anchor, float width, float height);
     ~Graph();
     void changeDimension(float width, float height);

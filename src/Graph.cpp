@@ -33,6 +33,12 @@ float arrMin(float arr[], int size) {
     return min;
 }
 
+Graph::Graph() {
+    width_ = 100;
+    height_ = 100;
+    anchor_ = {0.0f, 0.0f};
+}
+
 Graph::Graph(SDL_FPoint anchor, float width, float height) {
     width_ = width;
     height_ = height;

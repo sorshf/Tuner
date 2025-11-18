@@ -51,6 +51,8 @@ endif()
 # Source files
 set(SOURCES
     ${PROJECT_SOURCE_DIR}/src/main.cpp
+    ${PROJECT_SOURCE_DIR}/src/App.cpp
+    ${PROJECT_SOURCE_DIR}/src/Recorder.cpp
     ${PROJECT_SOURCE_DIR}/src/Graph.cpp
     ${PROJECT_SOURCE_DIR}/src/Sound.cpp
     ${PROJECT_SOURCE_DIR}/src/Text.cpp
